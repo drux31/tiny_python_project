@@ -32,18 +32,22 @@ def main():
     """Make a jazz noise here"""
     
     args = get_args()
-       
+    totallines, totalbytes, totalwords = 0, 0, 0
     for fh in args.file:
         #variable
         nbBbytes = 0
         nbWords = 0
         nbLines = 0
         for line in fh:
-            nbLines +=1
-            nbWords += len(line.split(' '))
+            nbWords += len(line.split())
             nbBbytes += len(line)
+            nbLines += 1
         print('{:8}'.format(nbLines) + '{:8}'.format(nbWords) + '{:8}'.format(nbBbytes)+ f' {fh.name}')
-
+        totalbytes += nbBbytes
+        totallines += nbLines
+        totalwords += nbWords
+    if len(args.file) > 1:
+        print('{:8}'.format(totallines) + '{:8}'.format(totalwords) + '{:8}'.format(totalbytes)+ f' total')
 
 # --------------------------------------------------
 if __name__ == '__main__':
