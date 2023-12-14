@@ -46,6 +46,7 @@ def main():
         totalbytes += nbBbytes
         totallines += nbLines
         totalwords += nbWords
+        
     if len(args.file) > 1:
         print('{:8}'.format(totallines) + '{:8}'.format(totalwords) + '{:8}'.format(totalbytes)+ f' total')
 
