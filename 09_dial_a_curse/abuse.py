@@ -38,7 +38,17 @@ def get_args():
                         type=int,
                         default=None)
     
-    return parser.parse_args()
+    args = parser.parse_args()
+    
+    if args.adjectives < 1:
+        parser.error(f'--adjectives "{args.adjectives}" must be > 0')
+
+    if args.number < 1:
+        parser.error(f'--number "{args.number}" must be > 0')
+    
+    return args
+    
+
 
 
 # --------------------------------------------------
